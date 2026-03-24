@@ -1,5 +1,6 @@
 // CoFounder Kollective — Hero Section
 // Black background, massive condensed headline, hot pink accent, stat grid
+// Updated: March 2026
 
 import { useEffect, useRef } from 'react';
 
