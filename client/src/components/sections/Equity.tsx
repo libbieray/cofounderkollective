@@ -45,39 +45,45 @@ export default function Equity() {
     >
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 items-start">
 
-        {/* Stakeholder cards */}
-        <div className="flex flex-col gap-4">
-          {stakeholders.map((s) => (
-            <div
-              key={s.label}
-              className="flex items-start gap-5 px-7 py-6"
-              style={{ background: 'rgba(255,255,255,0.04)', borderLeft: `3px solid ${s.colour}` }}
-            >
-              <div className="flex-shrink-0 pt-1.5">
-                <div className="w-3 h-3 rounded-full" style={{ background: s.colour }} />
-              </div>
-              <div>
-                <div className="flex items-baseline gap-3 flex-wrap">
-                  <span
-                    className="font-display font-black uppercase text-[1.25rem] text-white"
-                    style={{ letterSpacing: '0.03em' }}
-                  >
-                    {s.label}
-                  </span>
-                  <span
-                    className="font-display font-semibold text-[0.72rem] tracking-[0.18em] uppercase"
-                    style={{ color: s.colour }}
-                  >
-                    {s.role}
-                  </span>
+        {/* Stakeholder grid — matches Hero stats pattern */}
+        <div>
+          <div className="grid grid-cols-2 gap-[3px]">
+            {stakeholders.map((s, i) => (
+              <div
+                key={s.label}
+                className="p-7 transition-colors duration-200"
+                style={{
+                  background: i === 0 ? '#FF2D78' : '#1A1A1A',
+                }}
+                onMouseEnter={e => { if (i !== 0) e.currentTarget.style.background = '#2a2a2a'; }}
+                onMouseLeave={e => { if (i !== 0) e.currentTarget.style.background = '#1A1A1A'; }}
+              >
+                <div
+                  className="font-display font-black uppercase leading-none"
+                  style={{
+                    fontSize: 'clamp(1.8rem, 2.8vw, 2.4rem)',
+                    color: '#fff',
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {s.label}
                 </div>
-                <p className="mt-2 text-[0.9rem] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                <div
+                  className="text-[0.68rem] tracking-[0.14em] uppercase mt-2 font-semibold"
+                  style={{ color: i === 0 ? 'rgba(255,255,255,0.9)' : s.colour }}
+                >
+                  {s.role}
+                </div>
+                <p
+                  className="mt-4 text-[0.82rem] leading-[1.65]"
+                  style={{ color: i === 0 ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.5)' }}
+                >
                   {s.description}
                 </p>
               </div>
-            </div>
-          ))}
-          <p className="mt-4 font-display text-[0.72rem] tracking-[0.18em] uppercase" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            ))}
+          </div>
+          <p className="mt-5 text-[0.72rem] tracking-[0.12em] uppercase" style={{ color: 'rgba(255,255,255,0.3)' }}>
             Equity splits are negotiated individually with each founder.
           </p>
         </div>
