@@ -13,9 +13,9 @@ const team = [
   },
   {
     initials: 'LR',
-    name: 'Libby Ray',
+    name: 'Libbie Ray',
     role: 'AI Strategy, Operations & Technology',
-    bio: 'Libby brings 20 years of experience in event production and technology, combined with deep expertise in AI business strategy and automation. She builds the operational backbone that allows brands to scale without breaking — from AI-powered customer systems to ecommerce infrastructure and everything in between.',
+    bio: 'Libbie brings 20 years of experience in event production and technology, combined with deep expertise in AI business strategy and automation. She builds the operational backbone that allows brands to scale without breaking — from AI-powered customer systems to ecommerce infrastructure and everything in between.',
     skills: ['AI Automation', 'Ecommerce Build', 'Operations', 'Event Technology'],
   },
 ];

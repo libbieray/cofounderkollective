@@ -6,7 +6,7 @@ import { useReveal } from '../../hooks/useReveal';
 const legend = [
   { colour: '#FF2D78', label: 'You (Product Maker)', pct: '30%' },
   { colour: '#ff6fa3', label: 'Gina — Marketing & Ecommerce', pct: '~23%' },
-  { colour: '#ffb3cc', label: 'Libby — AI & Operations', pct: '~23%' },
+  { colour: '#ffb3cc', label: 'Libbie — AI & Operations', pct: '~23%' },
   { colour: '#3a3a3a', label: 'Advertising Partner', pct: '~24%' },
 ];
 
