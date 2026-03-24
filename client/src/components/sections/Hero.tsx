@@ -70,8 +70,8 @@ export default function Hero() {
           You Built
           <br />
           <span
-            className="font-serif-italic text-white"
-            style={{ fontSize: '0.82em', textTransform: 'none', letterSpacing: 0 }}
+            className="font-serif-italic"
+            style={{ fontSize: '0.82em', textTransform: 'none', letterSpacing: 0, color: '#FF2D78' }}
           >
             something
           </span>
