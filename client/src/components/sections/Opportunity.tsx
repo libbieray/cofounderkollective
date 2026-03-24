@@ -17,7 +17,7 @@ const points = [
   {
     num: '03',
     title: 'You Stay at the Centre',
-    body: 'You retain the largest stake in your business. You stay the expert on your product. We build and run everything around it.',
+    body: 'You keep ownership of your business. You stay the expert on your product. We build and run everything around it.',
   },
 ];
 
