@@ -37,7 +37,7 @@ async function startServer() {
 
       // Send confirmation email to applicant
       await resend.emails.send({
-        from: "CoFounder Kollective <noreply@cofounderkollective.com>",
+        from: "CoFounder Kollective <noreply@connect.cofounderkollective.com>",
         to: data.email,
         subject: "We Received Your Application",
         html: `
@@ -53,7 +53,7 @@ async function startServer() {
 
       // Send notification email to team
       await resend.emails.send({
-        from: "CoFounder Kollective <noreply@cofounderkollective.com>",
+        from: "CoFounder Kollective <noreply@connect.cofounderkollective.com>",
         to: process.env.TEAM_EMAIL || "team@cofounderkollective.com",
         subject: `New Application: ${data.product}`,
         html: `
