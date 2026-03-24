@@ -8,7 +8,7 @@ const stakeholders = [
     colour: '#FF2D78',
     label: 'You',
     role: 'Product Maker',
-    description: 'Your product, your vision, you keep ownership.',
+    description: 'Your product, your vision, your % ownership.',
   },
   {
     colour: '#ff6fa3',
