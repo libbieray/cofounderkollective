@@ -25,7 +25,7 @@ async function startServer() {
   // Middleware
   app.use(express.json());
 
-  // API route for form submissions
+  // API route for form submissions - MUST come before static file serving
   app.post("/api/applications", async (req, res) => {
     try {
       const data: ApplicationData = req.body;
@@ -36,7 +36,7 @@ async function startServer() {
       }
 
       // Send confirmation email to applicant
-      await resend.emails.send({
+      const confirmationResult = await resend.emails.send({
         from: "CoFounder Kollective <noreply@connect.cofounderkollective.com>",
         to: data.email,
         subject: "We Received Your Application",
@@ -51,8 +51,13 @@ async function startServer() {
         `,
       });
 
+      if (confirmationResult.error) {
+        console.error("Confirmation email error:", confirmationResult.error);
+        return res.status(500).json({ error: "Failed to send confirmation email" });
+      }
+
       // Send notification email to team
-      await resend.emails.send({
+      const notificationResult = await resend.emails.send({
         from: "CoFounder Kollective <noreply@connect.cofounderkollective.com>",
         to: "libbie@connectedeventgroup.com",
         subject: `New Application: ${data.product}`,
@@ -70,10 +75,15 @@ async function startServer() {
         `,
       });
 
-      res.json({ success: true, message: "Application submitted successfully" });
+      if (notificationResult.error) {
+        console.error("Notification email error:", notificationResult.error);
+        return res.status(500).json({ error: "Application received but failed to notify team" });
+      }
+
+      return res.status(200).json({ success: true, message: "Application submitted successfully" });
     } catch (error) {
       console.error("Error processing application:", error);
-      res.status(500).json({ error: "Failed to process application" });
+      return res.status(500).json({ error: "Failed to process application", details: error instanceof Error ? error.message : "Unknown error" });
     }
   });
 
