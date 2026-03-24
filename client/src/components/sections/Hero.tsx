@@ -4,7 +4,7 @@
 import { useEffect, useRef } from 'react';
 
 const stats = [
-  { num: '30%', label: 'You Retain. Always. Non-Negotiable.', pink: true },
+  { num: 'YOURS', label: 'Largest Stake. Always. Non-Negotiable.', pink: true },
   { num: '3', label: 'Pillars: Product · AI · Brand', pink: false },
   { num: '$0', label: 'Upfront Cost to You', pink: false },
   { num: '100%', label: 'Aligned. We Win When You Win.', pink: false },
