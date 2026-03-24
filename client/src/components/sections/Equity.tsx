@@ -46,38 +46,38 @@ export default function Equity() {
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 items-start">
 
         {/* Stakeholder cards */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4">
           {stakeholders.map((s) => (
             <div
               key={s.label}
-              className="flex items-start gap-5 px-6 py-5 rounded-sm"
+              className="flex items-start gap-5 px-7 py-6"
               style={{ background: 'rgba(255,255,255,0.04)', borderLeft: `3px solid ${s.colour}` }}
             >
-              <div className="flex-shrink-0 pt-0.5">
-                <div className="w-2.5 h-2.5 rounded-full" style={{ background: s.colour }} />
+              <div className="flex-shrink-0 pt-1.5">
+                <div className="w-3 h-3 rounded-full" style={{ background: s.colour }} />
               </div>
               <div>
-                <div className="flex items-baseline gap-2 flex-wrap">
+                <div className="flex items-baseline gap-3 flex-wrap">
                   <span
-                    className="font-display font-black uppercase text-[1rem] text-white"
-                    style={{ letterSpacing: '-0.01em' }}
+                    className="font-display font-black uppercase text-[1.25rem] text-white"
+                    style={{ letterSpacing: '0.03em' }}
                   >
                     {s.label}
                   </span>
                   <span
-                    className="font-display font-bold text-[0.7rem] tracking-[0.15em] uppercase"
+                    className="font-display font-semibold text-[0.72rem] tracking-[0.18em] uppercase"
                     style={{ color: s.colour }}
                   >
                     {s.role}
                   </span>
                 </div>
-                <p className="mt-1 text-[0.82rem] leading-[1.65]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                <p className="mt-2 text-[0.9rem] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.55)' }}>
                   {s.description}
                 </p>
               </div>
             </div>
           ))}
-          <p className="mt-3 text-[0.78rem] tracking-[0.05em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>
+          <p className="mt-4 font-display text-[0.72rem] tracking-[0.18em] uppercase" style={{ color: 'rgba(255,255,255,0.35)' }}>
             Equity splits are negotiated individually with each founder.
           </p>
         </div>
