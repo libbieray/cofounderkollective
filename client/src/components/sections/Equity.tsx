@@ -1,13 +1,33 @@
 // CoFounder Kollective — Equity Section
-// Black background, donut chart, pink tones
+// Black background, stakeholder cards, pink tones
 
 import { useReveal } from '../../hooks/useReveal';
 
-const legend = [
-  { colour: '#FF2D78', label: 'You (Product Maker)', pct: '30%' },
-  { colour: '#ff6fa3', label: 'Gina — Marketing & Ecommerce', pct: '~23%' },
-  { colour: '#ffb3cc', label: 'Libbie — AI & Operations', pct: '~23%' },
-  { colour: '#3a3a3a', label: 'Advertising Partner', pct: '~24%' },
+const stakeholders = [
+  {
+    colour: '#FF2D78',
+    label: 'You',
+    role: 'Product Maker',
+    description: 'Your product, your vision, your largest stake.',
+  },
+  {
+    colour: '#ff6fa3',
+    label: 'Gina',
+    role: 'Marketing & Ecommerce',
+    description: 'Brand identity, store build-out, and customer acquisition.',
+  },
+  {
+    colour: '#ffb3cc',
+    label: 'Libbie',
+    role: 'AI & Operations',
+    description: 'Automation, infrastructure, and operational systems.',
+  },
+  {
+    colour: '#5a5a5a',
+    label: 'Partner',
+    role: 'Performance Advertising',
+    description: 'Paid media strategy and ongoing ad management.',
+  },
 ];
 
 export default function Equity() {
@@ -23,34 +43,43 @@ export default function Equity() {
         transform: visible ? 'translateY(0)' : 'translateY(24px)',
       }}
     >
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 items-center">
-        {/* Donut + legend */}
-        <div className="flex flex-col sm:flex-row items-center gap-12 flex-wrap">
-          <svg viewBox="0 0 200 200" className="w-52 h-52 flex-shrink-0">
-            {/* 30% You */}
-            <circle cx="100" cy="100" r="70" fill="none" stroke="#FF2D78" strokeWidth="30"
-              strokeDasharray="131.95 307.88" strokeDashoffset="0" transform="rotate(-90 100 100)" />
-            {/* ~23% Gina */}
-            <circle cx="100" cy="100" r="70" fill="none" stroke="#ff6fa3" strokeWidth="30"
-              strokeDasharray="102.4 337.43" strokeDashoffset="-131.95" transform="rotate(-90 100 100)" />
-            {/* ~23% Libby */}
-            <circle cx="100" cy="100" r="70" fill="none" stroke="#ffb3cc" strokeWidth="30"
-              strokeDasharray="102.4 337.43" strokeDashoffset="-234.35" transform="rotate(-90 100 100)" />
-            {/* ~24% Ads */}
-            <circle cx="100" cy="100" r="70" fill="none" stroke="#3a3a3a" strokeWidth="30"
-              strokeDasharray="103.45 336.38" strokeDashoffset="-336.75" transform="rotate(-90 100 100)" />
-            <text x="100" y="95" textAnchor="middle" fontFamily="Barlow Condensed" fontSize="28" fontWeight="900" fill="#FF2D78">30%</text>
-            <text x="100" y="114" textAnchor="middle" fontFamily="DM Sans" fontSize="9" fill="rgba(255,255,255,0.4)" letterSpacing="1">YOURS</text>
-          </svg>
-          <div className="flex flex-col gap-4">
-            {legend.map((l) => (
-              <div key={l.label} className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 flex-shrink-0" style={{ background: l.colour }} />
-                <span className="text-[0.8rem]" style={{ color: 'rgba(255,255,255,0.55)' }}>{l.label}</span>
-                <span className="font-display font-bold text-[1.05rem] text-white ml-auto pl-5">{l.pct}</span>
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 items-start">
+
+        {/* Stakeholder cards */}
+        <div className="flex flex-col gap-3">
+          {stakeholders.map((s) => (
+            <div
+              key={s.label}
+              className="flex items-start gap-5 px-6 py-5 rounded-sm"
+              style={{ background: 'rgba(255,255,255,0.04)', borderLeft: `3px solid ${s.colour}` }}
+            >
+              <div className="flex-shrink-0 pt-0.5">
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: s.colour }} />
               </div>
-            ))}
-          </div>
+              <div>
+                <div className="flex items-baseline gap-2 flex-wrap">
+                  <span
+                    className="font-display font-black uppercase text-[1rem] text-white"
+                    style={{ letterSpacing: '-0.01em' }}
+                  >
+                    {s.label}
+                  </span>
+                  <span
+                    className="font-display font-bold text-[0.7rem] tracking-[0.15em] uppercase"
+                    style={{ color: s.colour }}
+                  >
+                    {s.role}
+                  </span>
+                </div>
+                <p className="mt-1 text-[0.82rem] leading-[1.65]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                  {s.description}
+                </p>
+              </div>
+            </div>
+          ))}
+          <p className="mt-3 text-[0.78rem] tracking-[0.05em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>
+            Equity splits are negotiated individually with each founder.
+          </p>
         </div>
 
         {/* Text */}
