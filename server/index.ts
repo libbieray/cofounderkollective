@@ -54,7 +54,7 @@ async function startServer() {
       // Send notification email to team
       await resend.emails.send({
         from: "CoFounder Kollective <noreply@connect.cofounderkollective.com>",
-        to: process.env.TEAM_EMAIL || "team@cofounderkollective.com",
+        to: "libbie@connectedeventgroup.com",
         subject: `New Application: ${data.product}`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
