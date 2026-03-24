@@ -71,7 +71,7 @@ export default function Hero() {
           <br />
           <span
             className="font-serif-italic"
-            style={{ fontSize: '0.82em', textTransform: 'none', letterSpacing: 0, color: '#FF2D78' }}
+            style={{ fontSize: '1em', textTransform: 'none', letterSpacing: 0, color: '#FF2D78' }}
           >
             something
           </span>
