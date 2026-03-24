@@ -1,25 +1,30 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+// CoFounder Kollective — Home Page
+// Assembles all sections in order
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
- */
+import Navbar from '../components/Navbar';
+import Hero from '../components/sections/Hero';
+import Ticker from '../components/sections/Ticker';
+import Opportunity from '../components/sections/Opportunity';
+import HowItWorks from '../components/sections/HowItWorks';
+import Equity from '../components/sections/Equity';
+import Criteria from '../components/sections/Criteria';
+import Team from '../components/sections/Team';
+import ApplyForm from '../components/sections/ApplyForm';
+import Footer from '../components/Footer';
+
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      <Hero />
+      <Ticker />
+      <Opportunity />
+      <HowItWorks />
+      <Equity />
+      <Criteria />
+      <Team />
+      <ApplyForm />
+      <Footer />
     </div>
   );
 }
