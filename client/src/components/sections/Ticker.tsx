@@ -1,22 +1,17 @@
-// CoFounder Kollective — Ticker Strip
-// Solid hot pink bar with scrolling brand keywords
-
-const items = [
-  'Product Partnership', 'Ecommerce Scaling', 'AI-Powered Operations',
-  'Brand Architecture', 'Women-Founded', 'Equity-Based Partnership',
-  'No Upfront Fees', 'Real Products · Real Demand',
-];
+// CoFounder Kollective — Positioning Strip (Updated)
+// Updated copy: "Built for founders with a product that's already working."
 
 export default function Ticker() {
-  const repeated = [...items, ...items];
+  const message = 'Built for founders with a product that\'s already working. If there\'s proven demand, we build the machine around it.';
+  const items = [message, message, message, message];
 
   return (
-    <div className="overflow-hidden py-3.5" style={{ background: '#FF2D78' }}>
+    <div className="overflow-hidden py-4 border-y-0" style={{ background: '#FF2D78' }}>
       <div className="flex ticker-animate whitespace-nowrap" style={{ width: 'max-content' }}>
-        {repeated.map((item, i) => (
-          <span key={i} className="font-display font-bold text-[0.82rem] tracking-[0.2em] uppercase text-white inline-flex items-center gap-8 px-8">
+        {items.map((item, i) => (
+          <span key={i} className="font-display font-bold text-[0.85rem] tracking-[0.12em] uppercase text-white inline-flex items-center gap-10 px-10">
             {item}
-            <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.4rem' }}>◆</span>
+            <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.45rem' }}>◆</span>
           </span>
         ))}
       </div>

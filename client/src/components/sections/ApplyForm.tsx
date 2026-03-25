@@ -1,5 +1,5 @@
-// CoFounder Kollective — Application Form Section
-// Dark black section, pink focus states, pink submit button
+// CoFounder Kollective — Application Form (Section 10)
+// Updated fields per brief
 
 import { useState } from 'react';
 import { useReveal } from '../../hooks/useReveal';
@@ -17,7 +17,7 @@ export default function ApplyForm() {
     transition: 'border-color 0.2s',
     width: '100%',
     padding: '14px 16px',
-    fontSize: '0.92rem',
+    fontSize: '0.93rem',
     fontFamily: 'DM Sans, sans-serif',
     borderRadius: 0,
   });
@@ -38,7 +38,7 @@ export default function ApplyForm() {
         transform: visible ? 'translateY(0)' : 'translateY(24px)',
       }}
     >
-      <div className="max-w-[900px] mx-auto">
+      <div className="max-w-[860px] mx-auto">
         <div className="mb-14">
           <div className="section-label">Apply to Partner</div>
           <h2
@@ -46,10 +46,10 @@ export default function ApplyForm() {
             style={{ fontSize: 'clamp(2.5rem, 4.5vw, 4.5rem)', letterSpacing: '-0.02em', lineHeight: '0.95' }}
           >
             Ready to{' '}
-            <span style={{ color: '#FF2D78' }}>Scale?</span>
+            <span style={{ color: '#FF2D78' }}>scale?</span>
           </h2>
-          <p className="mt-6 text-[1rem] leading-[1.8] max-w-[560px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
-            Tell us about your product and your story. We review every application personally and respond to every founder — whether it's a yes, a not yet, or a referral.
+          <p className="mt-6 text-[1rem] leading-[1.8] max-w-[520px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            Tell us about your product and your traction. We review every application personally and respond to every founder.
           </p>
         </div>
 
@@ -71,12 +71,12 @@ export default function ApplyForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="font-display font-bold text-[0.65rem] tracking-[0.2em] uppercase block mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                  Your Name *
+                  Name *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Full name"
+                  placeholder="Your full name"
                   style={inputStyle('name')}
                   onFocus={() => setFocused('name')}
                   onBlur={() => setFocused(null)}
@@ -84,7 +84,7 @@ export default function ApplyForm() {
               </div>
               <div>
                 <label className="font-display font-bold text-[0.65rem] tracking-[0.2em] uppercase block mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                  Email Address *
+                  Email *
                 </label>
                 <input
                   type="email"
@@ -99,72 +99,84 @@ export default function ApplyForm() {
 
             <div>
               <label className="font-display font-bold text-[0.65rem] tracking-[0.2em] uppercase block mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                Product / Brand Name *
+                Product Name *
               </label>
               <input
                 type="text"
                 required
                 placeholder="What is your product called?"
-                style={inputStyle('product')}
-                onFocus={() => setFocused('product')}
+                style={inputStyle('productName')}
+                onFocus={() => setFocused('productName')}
                 onBlur={() => setFocused(null)}
               />
             </div>
 
             <div>
               <label className="font-display font-bold text-[0.65rem] tracking-[0.2em] uppercase block mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                Website or Social Link
+                What is your product? *
+              </label>
+              <textarea
+                required
+                rows={3}
+                placeholder="Describe what you make and who buys it."
+                style={{ ...inputStyle('productDesc'), resize: 'vertical' }}
+                onFocus={() => setFocused('productDesc')}
+                onBlur={() => setFocused(null)}
+              />
+            </div>
+
+            <div>
+              <label className="font-display font-bold text-[0.65rem] tracking-[0.2em] uppercase block mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                What traction or sales have you achieved? *
+              </label>
+              <textarea
+                required
+                rows={4}
+                placeholder="Tell us about your proof of demand — sales, revenue, repeat customers, reviews, etc."
+                style={{ ...inputStyle('traction'), resize: 'vertical' }}
+                onFocus={() => setFocused('traction')}
+                onBlur={() => setFocused(null)}
+              />
+            </div>
+
+            <div>
+              <label className="font-display font-bold text-[0.65rem] tracking-[0.2em] uppercase block mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                Website / Link (optional)
               </label>
               <input
-                type="url"
-                placeholder="https://"
+                type="text"
+                placeholder="https:// or social link"
                 style={inputStyle('url')}
                 onFocus={() => setFocused('url')}
                 onBlur={() => setFocused(null)}
               />
             </div>
 
-            <div>
-              <label className="font-display font-bold text-[0.65rem] tracking-[0.2em] uppercase block mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                Tell Us About Your Product *
-              </label>
-              <textarea
-                required
-                rows={5}
-                placeholder="What is it, who buys it, and what's your proof of demand?"
-                style={{ ...inputStyle('bio'), resize: 'vertical' }}
-                onFocus={() => setFocused('bio')}
-                onBlur={() => setFocused(null)}
-              />
-            </div>
-
-            <div>
-              <label className="font-display font-bold text-[0.65rem] tracking-[0.2em] uppercase block mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                Current Monthly Revenue (approx.)
-              </label>
-              <select
-                style={{ ...inputStyle('revenue'), cursor: 'pointer' }}
-                onFocus={() => setFocused('revenue')}
-                onBlur={() => setFocused(null)}
-              >
-                <option value="" style={{ background: '#1a1a1a' }}>Select a range</option>
-                <option value="pre" style={{ background: '#1a1a1a' }}>Pre-revenue (but have sold)</option>
-                <option value="0-2k" style={{ background: '#1a1a1a' }}>Under $2,000/month</option>
-                <option value="2-10k" style={{ background: '#1a1a1a' }}>$2,000 – $10,000/month</option>
-                <option value="10-50k" style={{ background: '#1a1a1a' }}>$10,000 – $50,000/month</option>
-                <option value="50k+" style={{ background: '#1a1a1a' }}>$50,000+/month</option>
-              </select>
-            </div>
+            <p
+              className="text-[0.75rem] tracking-[0.04em]"
+              style={{ color: 'rgba(255,255,255,0.3)', fontStyle: 'italic' }}
+            >
+              All information submitted is private and confidential.
+            </p>
 
             <div className="pt-2">
               <button
                 type="submit"
-                className="font-display font-bold text-[0.88rem] tracking-[0.15em] uppercase text-white px-12 py-[18px] transition-all duration-200"
+                className="font-display font-bold text-[0.88rem] tracking-[0.15em] uppercase text-white px-12 py-[18px] transition-all duration-200 inline-flex items-center gap-3"
                 style={{ background: '#FF2D78' }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#d91f60'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#FF2D78'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#d91f60';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(255,45,120,0.35)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = '#FF2D78';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
               >
-                Submit Application
+                Apply to partner with us
+                <span style={{ fontSize: '0.75rem', opacity: 0.75 }}>→</span>
               </button>
             </div>
           </form>
